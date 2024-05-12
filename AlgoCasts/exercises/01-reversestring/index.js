@@ -8,13 +8,16 @@
 
 function reverse(str) {
   // *** Solution 1
-  const length = str.length;
-  let retorno = "";
+  // const length = str.length;
+  // let retorno = "";
 
-  for (let index = length - 1; index >= 0; index--) {
-    retorno += str[index];
-  }
-  return retorno;
+  // for (let index = length - 1; index >= 0; index--) {
+  //   retorno += str[index];
+  // }
+  // return retorno;
+
+  // *** Solution 2
+  return str.split("").reverse().join("");
 }
 
 module.exports = reverse;
