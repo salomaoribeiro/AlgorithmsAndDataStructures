@@ -9,6 +9,7 @@
 //   reverseInt(-90) === -9
 
 function reverseInt(n) {
+  // *** Solution 1 ***
   // let value = "0";
   //
   // if (n < 0) {
@@ -23,16 +24,22 @@ function reverseInt(n) {
   //
   // return parseInt(value);
 
-  let value = 0;
-  const iteration = n < 0 ? n.toString().length - 1 : n.toString().length;
+  // *** Solution 2 ***
+  // let value = 0;
+  // const iteration = n < 0 ? n.toString().length - 1 : n.toString().length;
+  //
+  // for (let i = iteration - 1; i >= 0; i--) {
+  //   const number = n % 10;
+  //   n = parseInt(n / 10);
+  //   value += 10 ** i * number;
+  // }
+  //
+  // return value;
 
-  for (let i = iteration - 1; i >= 0; i--) {
-    const number = n % 10;
-    n = parseInt(n / 10);
-    value += 10 ** i * number;
-  }
+  // *** Solution 3 ***
+  const value = n.toString().split("").reverse().join("");
 
-  return value;
+  return parseInt(value) * Math.sign(n);
 }
 
 module.exports = reverseInt;
