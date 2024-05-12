@@ -10,16 +10,25 @@
 
 function chunk(array, size) {
   // *** Solution 1 ***
+  // let arr = [];
+  // let subArr = [];
+  //
+  // for (let i = 0; i < array.length; i++) {
+  //   subArr.push(array[i]);
+  //
+  //   if (subArr.length === size || i == array.length - 1) {
+  //     arr.push(subArr);
+  //     subArr = [];
+  //   }
+  // }
+  //
+  // return arr;
+
+  // *** Solution 2 ***
   let arr = [];
-  let subArr = [];
 
-  for (let i = 0; i < array.length; i++) {
-    subArr.push(array[i]);
-
-    if (subArr.length === size || i == array.length - 1) {
-      arr.push(subArr);
-      subArr = [];
-    }
+  for (let i = 0; i <= array.length - 1; i += size) {
+    arr.push(array.slice(i, i + size));
   }
 
   return arr;
