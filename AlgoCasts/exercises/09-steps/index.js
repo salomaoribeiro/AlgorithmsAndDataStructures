@@ -17,12 +17,23 @@
 //       '### '
 //       '####'
 
+// *** Solution 1 ***
 function steps(n) {
   for (let i = 1; i <= n; i++) {
-    for (let j = 1; n <= i; j++) {
-      console.log(j <= i ? "#" : " ");
+    result = "";
+
+    for (let j = 1; j <= n; j++) {
+      result += j <= i ? "#" : " ";
     }
+    console.log(result);
   }
 }
+
+// *** Solution 2 ***
+// function steps(n) {
+//   for (let i = 1; i <= n; i++) {
+//     console.log("#".repeat(i) + " ".repeat(n - i));
+//   }
+// }
 
 module.exports = steps;
