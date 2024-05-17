@@ -8,36 +8,48 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+// function anagrams(stringA, stringB) {
+//   let dictA = quantityForLetters(justLetters(stringA));
+//   let dictB = quantityForLetters(justLetters(stringB));
+//
+//   return Object.entries(dictA).toString() === Object.entries(dictB).toString();
+// }
+//
+// function justLetters(string) {
+//   let arr = [];
+//
+//   string
+//     .toLocaleLowerCase()
+//     .split("")
+//     .sort()
+//     .forEach((element) => {
+//       const ascii = element.charCodeAt(0);
+//       if (ascii >= 97 && ascii <= 122) arr.push(element);
+//     });
+//
+//   return arr;
+// }
+//
+// function quantityForLetters(array) {
+//   let dictionary = {};
+//
+//   array.forEach((element) => {
+//     dictionary[element] = dictionary[element] + 1 || 1;
+//   });
+//
+//   return dictionary;
+// }
+
+// *** Solution 2 ***
+
 function anagrams(stringA, stringB) {
-  let dictA = quantityForLetters(justLetters(stringA));
-  let dictB = quantityForLetters(justLetters(stringB));
+  let justWordsA = stringA.replace(/[^\w]/g, "").toLowerCase();
+  let justWordsB = stringB.replace(/[^\w]/g, "").toLowerCase();
 
-  return Object.entries(dictA).toString() === Object.entries(dictB).toString();
-}
+  justWordsA = justWordsA.split("").sort().join("");
+  justWordsB = justWordsB.split("").sort().join("");
 
-function justLetters(string) {
-  let arr = [];
-
-  string
-    .toLocaleLowerCase()
-    .split("")
-    .sort()
-    .forEach((element) => {
-      const ascii = element.charCodeAt(0);
-      if (ascii >= 97 && ascii <= 122) arr.push(element);
-    });
-
-  return arr;
-}
-
-function quantityForLetters(array) {
-  let dictionary = {};
-
-  array.forEach((element) => {
-    dictionary[element] = dictionary[element] + 1 || 1;
-  });
-
-  return dictionary;
+  return justWordsA === justWordsB;
 }
 
 module.exports = anagrams;
